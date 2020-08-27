@@ -39,11 +39,11 @@ mc:Ignorable="x14ac"
     <col min="2" max="2" width="16.7109375" customWidth="1"/>
     <col min="3" max="3" width="9.140625" style="1"/>
     <col min="4" max="4" width="82" customWidth="1"/>
-    <col min="6" max="6" width="16" customWidth="1"/>
+    <col min="6" max="6" width="16" customWidth="1" hidden="1"/>
   </cols>
   <sheetData>
     <row r="1" spans="1:5" s="2" customFormat="1" ht="15.75" thickBot="1" \
-x14ac:dyDescent="0.3">
+x14ac:dyDescent="0.3" hidden="1">
       <c r="A1" s="3" t="s"/>
     </row>
     <row r="2">
@@ -112,35 +112,40 @@ private let parsed = [
     max: 1,
     width: 26.42578125,
     style: nil,
-    customWidth: true
+    customWidth: true,
+    hidden: nil
   ),
   Column(
     min: 2,
     max: 2,
     width: 16.7109375,
     style: nil,
-    customWidth: true
+    customWidth: true,
+    hidden: nil
   ),
   Column(
     min: 3,
     max: 3,
     width: 9.140625,
     style: 1,
-    customWidth: nil
+    customWidth: nil,
+    hidden: nil
   ),
   Column(
     min: 4,
     max: 4,
     width: 82,
     style: nil,
-    customWidth: true
+    customWidth: true,
+    hidden: nil
   ),
   Column(
     min: 6,
     max: 6,
     width: 16,
     style: nil,
-    customWidth: true
+    customWidth: true,
+    hidden: true
   ),
 ]
 
@@ -155,6 +160,7 @@ class WorksheetTests: XCTestCase {
     )
     XCTAssertEqual(ws1.columns?.items, parsed)
     XCTAssertEqual(ws1.cells(atRows: 1 ... 80).count, 6)
+    XCTAssertEqual(ws1.data?.rows.first?.hidden, true)
 
     let ws2 = try decoder.decode(Worksheet.self, from: xml2)
     XCTAssertEqual(ws2.cells(atRows: 1 ... 80).count, 5)

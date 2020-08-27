@@ -200,6 +200,7 @@ public struct Column: Codable, Equatable {
   public let width: Double
   public let style: UInt32?
   public let customWidth: Bool?
+  public let hidden: Bool?
 }
 
 public struct Row: Codable {
@@ -212,6 +213,7 @@ public struct Row: Codable {
 
   public let height: Double?
   public let customHeight: String?
+  public let hidden: Bool?
   public let cells: [Cell]
 
   enum CodingKeys: String, CodingKey {
@@ -219,6 +221,7 @@ public struct Row: Codable {
     case reference = "r"
     case height = "ht"
     case customHeight
+    case hidden
   }
 }
 
