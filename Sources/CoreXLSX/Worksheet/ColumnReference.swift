@@ -20,7 +20,7 @@ import Foundation
 public struct ColumnReference {
   public let value: String
 
-  let intValue: Int
+  public let intValue: Int
 
   init?(_ value: Int) {
     guard value > 0 else { return nil }
