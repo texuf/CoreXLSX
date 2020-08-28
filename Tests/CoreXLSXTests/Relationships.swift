@@ -91,7 +91,7 @@ final class RelationshipsTests: XCTestCase {
 
     XCTAssertEqual(relationshipsFromFile, Relationships(items: parsed))
   }
-    
+
   func testPersonRelationship() throws {
     let decoder = XMLDecoder()
     decoder.keyDecodingStrategy = .convertFromCapitalized
